@@ -13,6 +13,7 @@ private:
 	void initSystems();
 	void gameLoop();
 	void processInput();
+	void draw();
 	SDL_Window *wnd;
 	int screenWidth;
 	int screenHeight;
