@@ -79,9 +79,14 @@ void MainGame::draw()
 
 	glBegin(GL_TRIANGLES);
 	glColor3f(1.0f, 0.5f, 0.0f);
-	glVertex2i(0, 0);
-	glVertex2i(0, -500);
-	glVertex2i(-500,-500);
+	glVertex2f(0, 0);
+	glVertex2f(-0, -1);
+	glVertex2f(1,-1);
+
+	glColor3f(1.0f, 0.5f, 0.0f);
+	glVertex2f(0, 0);
+	glVertex2f(1, 1);
+	glVertex2f(-0, 1);
 	glEnd();
 
 	SDL_GL_SwapWindow(wnd);
