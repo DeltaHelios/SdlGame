@@ -1,6 +1,8 @@
 #pragma once
 #define SDL_MAIN_HANDLED
 #include "SDL.h"
+#include "Sprite.h"
+
 enum class GameState {
 	PLAY, EXIT
 };
@@ -18,5 +20,6 @@ private:
 	int screenWidth;
 	int screenHeight;
 	GameState state;
+	Sprite sprites[10][10];
 };
 

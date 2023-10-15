@@ -23,6 +23,16 @@ MainGame::MainGame()
 void MainGame::run()
 {
 	initSystems();
+	
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			float dx = (i-0.9f) * 0.75f;
+			float dy = (j-0.9f) * 0.75f;
+
+			sprites[i][j].init(dx-0.3f,dy-0.3f, 0.4, 0.4);
+		}
+	}
+
 	gameLoop();
 }
 
@@ -72,21 +82,15 @@ void MainGame::processInput()
 
 void MainGame::draw()
 {
-	glClearDepth(1.1);
+	glClearDepth(1.0);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	glEnableClientState(GL_COLOR_ARRAY);
+	for (int c = 0; c < 3; c++) {
+		for (int r = 0; r< 3; r++) {
 
-	glBegin(GL_TRIANGLES);
-	glColor3f(1.0f, 0.5f, 0.0f);
-	glVertex2f(0, 0);
-	glVertex2f(-0, -1);
-	glVertex2f(1,-1);
-
-	glColor3f(1.0f, 0.5f, 0.0f);
-	glVertex2f(0, 0);
-	glVertex2f(1, 1);
-	glVertex2f(-0, 1);
+			sprites[c][r].draw();
+		}
+	}
 	glEnd();
 
 	SDL_GL_SwapWindow(wnd);
